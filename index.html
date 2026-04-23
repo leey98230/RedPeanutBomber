@@ -1,17 +1,246 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>마녀공주 키우기 - 공식 홈페이지</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마녀공주 키우기 (Magongki RPG) - 공식 홈페이지</title>
+    <meta name="description" content="세상을 구하는 마녀공주의 위대한 모험! 마녀공주 키우기 공식 홈페이지입니다.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; }
-        .logo { width: 200px; }
-        .content { margin-top: 30px; }
-        .links { margin-top: 20px; }
-        a { color: #007aff; text-decoration: none; margin: 0 10px; }
+        :root {
+            --bg: #faf7fc;
+            --surface: #ffffff;
+            --ink: #1f1427;
+            --ink-soft: #4d3b5c;
+            --ink-muted: #8b7f95;
+            --line: #ebe2f1;
+            --accent: #6b3fa0;
+            --accent-hover: #553283;
+            --accent-soft: #f2ebf7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 24px;
+        }
+
+        .hero {
+            max-width: 560px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-wrap {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 40px;
+            border-radius: 32px;
+            background: linear-gradient(135deg, var(--accent-soft) 0%, #e8dcf2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            box-shadow: 0 8px 24px rgba(107, 63, 160, 0.15);
+        }
+
+        .logo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .eyebrow {
+            font-size: 12px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: clamp(32px, 6vw, 44px);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1.15;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: var(--ink-muted);
+            letter-spacing: 0.04em;
+            margin-bottom: 24px;
+        }
+
+        .tagline {
+            font-size: 17px;
+            color: var(--ink-soft);
+            margin-bottom: 48px;
+            line-height: 1.7;
+        }
+
+        .links {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+            min-width: 180px;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fafaf7;
+            border-color: var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(107, 63, 160, 0.28);
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--ink);
+            border-color: var(--line);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .btn svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        footer {
+            padding: 24px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--ink-muted);
+            border-top: 1px solid var(--line);
+        }
+
+        footer strong {
+            color: var(--ink-soft);
+            font-weight: 600;
+        }
+
+        @media (max-width: 480px) {
+            .logo-wrap {
+                width: 128px;
+                height: 128px;
+                margin-bottom: 32px;
+            }
+
+            .tagline {
+                margin-bottom: 36px;
+            }
+
+            .links {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #161322;
+                --surface: #1e1a2e;
+                --ink: #f0ebf5;
+                --ink-soft: #c8bed6;
+                --ink-muted: #8a7f96;
+                --line: #2e2940;
+                --accent: #b794d9;
+                --accent-hover: #d0b5ea;
+                --accent-soft: #2a2240;
+            }
+
+            .btn-primary {
+                color: #161322;
+            }
+        }
     </style>
 </head>
 <body>
-    <img src="logo.png" alt="마공키 로고" class="logo">
-    <h1>마녀공주 키우기 (Magongki RPG)</h1>
-    <p>세상을 구하는 마녀공주의 위대한 모험!</p>
+    <main>
+        <div class="hero">
+            <div class="logo-wrap">
+                <img src="logo.png" alt="마녀공주 키우기 로고">
+            </div>
+
+            <div class="eyebrow">Pineapple Bomber Presents</div>
+            <h1>마녀공주 키우기</h1>
+            <p class="subtitle">Magongki RPG</p>
+            <p class="tagline">세상을 구하는 마녀공주의 위대한 모험!</p>
+
+            <div class="links">
+                <a href="privacy.html" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    개인정보 처리방침
+                </a>
+                <a href="mailto:pineapplebomber.dev@gmail.com" class="btn btn-secondary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    고객 지원
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        © 2026 <strong>파인애플봄버 (Pineapple Bomber)</strong>. All rights reserved.
+    </footer>
+</body>
+</html>
