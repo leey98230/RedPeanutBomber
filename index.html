@@ -153,11 +153,34 @@
         }
 
         footer {
-            padding: 24px;
+            padding: 40px 24px 32px;
             text-align: center;
+            border-top: 1px solid var(--line);
+        }
+
+        .company-mark {
+            display: inline-block;
+            margin-bottom: 16px;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .company-mark:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(107, 63, 160, 0.2);
+        }
+
+        .company-mark img {
+            width: 160px;
+            height: auto;
+            display: block;
+        }
+
+        footer p {
             font-size: 13px;
             color: var(--ink-muted);
-            border-top: 1px solid var(--line);
+            margin: 0;
         }
 
         footer strong {
@@ -221,7 +244,6 @@
                 <img src="logo.png" alt="마녀공주 키우기 로고">
             </div>
 
-            <div class="eyebrow">Pineapple Bomber Presents</div>
             <h1 class="visually-hidden">마녀공주 키우기</h1>
             <p class="visually-hidden">Magongki RPG — Raising a Witch Princess</p>
             <p class="tagline">세상을 구하는 마녀공주의 위대한 모험!</p>
@@ -245,7 +267,10 @@
     </main>
 
     <footer>
-        © 2026 <strong>파인애플봄버 (Pineapple Bomber)</strong>. All rights reserved.
+        <a href="#" class="company-mark" aria-label="Pineapple Bomber">
+            <img src="company-logo.png" alt="Pineapple Bomber 로고">
+        </a>
+        <p>© 2026 <strong>파인애플봄버 (Pineapple Bomber)</strong>. All rights reserved.</p>
     </footer>
 </body>
 </html>
